@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Chuck</string>
+    <string name="Title_text">Name someone to make fun of</string>
+    <string name="first_name_text">First Name</string>
+    <string name="load_joke_text">Load Joke</string>
+    <string name="default_text">Oh, this one is a good one!</string>
+    <string name="loadButton">Load Joke</string>
+</resources>
