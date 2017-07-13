@@ -1,5 +1,6 @@
 package com.kenn.neu.chuck;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +26,7 @@ public class Home_screen extends AppCompatActivity {
     private EditText edtFirstName;
     private EditText edtLastName;
 
-    private static final String CHUCK_QUERY = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
+    //private static final String CHUCK_QUERY = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,13 +98,14 @@ public class Home_screen extends AppCompatActivity {
 
 
             // This function is executed on main thread as well.
-            if (!TextUtils.isEmpty(result)) {
+
                 try {
                     String joke = extractJokeFromJson(result);
                     textView.setText(joke);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (NullPointerException e) {
+                    Toast.makeText(Home_screen.this, "Check internet connection", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
                 pbLoading.setVisibility(View.GONE);
@@ -120,4 +123,4 @@ public class Home_screen extends AppCompatActivity {
 
     }
 
-}
+
