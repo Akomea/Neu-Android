@@ -10,7 +10,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -31,31 +30,38 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="60dp"
         android:textSize="18dp"/>
-
-
-
-    <EditText
-        android:id="@+id/fname"
+    <LinearLayout
+        android:id="@+id/ll_names"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginLeft="20dp"
-        android:padding="10dp"
-        android:hint="Chuck" />
+        android:orientation="horizontal"
+        android:layout_below="@id/title"
+        android:weightSum="2">
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:padding="10dp"
+            android:hint="Chuck" />
 
-    <EditText
-        android:id="@+id/lname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        <EditText
+            android:id="@+id/lname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="40dp"
 
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginRight="20dp"
-        android:padding="10dp"
-        android:hint="Norris"/>
+            android:layout_toRightOf="@id/fname"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:hint="Norris"/>
+
+    </LinearLayout>
+
+
 
 
 
@@ -63,9 +69,10 @@
     android:id="@+id/loadButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/fname"
+    android:layout_below="@+id/ll_names"
     android:layout_marginTop="30dp"
     android:layout_marginLeft="140dp"
+    android:layout_centerHorizontal="true"
     android:text="@string/load_joke_text"
     android:onClick="loadButton"
     android:background="#4286f4"/>

@@ -1,6 +1,5 @@
 package com.kenn.neu.chuck;
 
-import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,23 +10,26 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.URL;
 
 public class Home_screen extends AppCompatActivity {
 
+    /**
+     *
+     */
     private TextView textView;
     private Button button;
     private ProgressBar pbLoading;
     private EditText edtFirstName;
     private EditText edtLastName;
 
-    //private static final String CHUCK_QUERY = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,15 +55,12 @@ public class Home_screen extends AppCompatActivity {
         URL url = NetworkUtils.buildUrl(firstName, lastName);
         new ChuckQuoteTask().execute(url);
 
-
-
     }
     /**
      * This class extends AsyncTask to execute the query out of the main thread.
      * We should always not run a time consuming task on main thread.
      */
     private class ChuckQuoteTask extends AsyncTask<URL, Object, String> {
-
             @Override
         protected void onPreExecute() {
             // Here we prepare what we need to be done on the UI
@@ -72,10 +71,7 @@ public class Home_screen extends AppCompatActivity {
 
         @Override
         protected String doInBackground(URL... params) {
-
-
                 String result = null;
-
                 try {
                     //URL url = new URL(params[0]);
                     URL url = params[0];
@@ -84,10 +80,8 @@ public class Home_screen extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 return result;
             }
-
 
         @Override
         protected void onPostExecute(String result) {
@@ -96,9 +90,7 @@ public class Home_screen extends AppCompatActivity {
             // We should have a function to let us render what we got after the task
             // And here the function is onPostExecute()
 
-
             // This function is executed on main thread as well.
-
                 try {
                     String joke = extractJokeFromJson(result);
                     textView.setText(joke);
