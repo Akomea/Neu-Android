@@ -5,4 +5,8 @@
     <string name="action_explain">Go to explainxkcd</string>
     <string name="tvTitle"></string>
     <string name="action_random">Random</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
