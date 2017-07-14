@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Random;
 
 
 public class ScrollingActivity extends AppCompatActivity {
@@ -36,9 +37,6 @@ public class ScrollingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scrolling);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         ivXkcdPic = (ImageView) findViewById(R.id.iv_xkcd_pic);
         tvCreateDate = (TextView) findViewById(R.id.tv_create_date);
@@ -56,6 +54,7 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * Request current xkcd picture
      */
@@ -72,6 +71,7 @@ public class ScrollingActivity extends AppCompatActivity {
      * Request a specific xkcd picture
      * @param id the id of xkcd picture
      */
+
     private void loadXkcdPicById(int id) {
         String queryUrl = String.format(NetworkUtils.XKCD_QUERY_BY_ID_URL, id);
 
@@ -123,8 +123,13 @@ public class ScrollingActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_rand) {
+            Random ran = new Random();
+            int rid =ran.nextInt(1862-1);
+            loadXkcdPicById(rid+1);
             return true;
+        }else if (id==R.id.action_specific){
+
         }
         return super.onOptionsItemSelected(item);
     }

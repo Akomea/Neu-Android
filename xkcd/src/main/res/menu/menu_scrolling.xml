@@ -3,15 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.kenn.neu.xkcd.ScrollingActivity">
 
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/action_rand"
+        android:title="@string/action_random"
+        android:icon="@drawable/ic_youtube_searched_for_black_24dp"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+
+        app:showAsAction="always"/>
 
     <item android:id="@+id/action_specific"
         android:title="@string/mItemSpecific"
         android:orderInCategory="100"
         app:showAsAction="never"/>
+
+    <item android:id="@+id/action_gotoXkd"
+        android:title="@string/action_gotoXkcd"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_explain"
+        android:title="@string/action_explain"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+
+
+
+
 
 
 </menu>

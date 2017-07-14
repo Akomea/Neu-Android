@@ -4,4 +4,7 @@
     <item name="iv_xkcd_pic" type="id" />
     <item name="tv_create_date" type="id" />
     <item name="pb_loading" type="id" />
+    <item name="action_specific" type="id" />
+    <item name="action_gotoXkcd" type="id" />
+    <item name="action_explain" type="id" />
 </resources>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">xkcd</string>
     <string name="mItemSpecific"> Specific xkcd</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_gotoXkcd">Go to xkcd.com</string>
+    <string name="action_explain">Go to explainxkcd</string>
     <string name="tvTitle"></string>
+    <string name="action_random">Random</string>
 </resources>
