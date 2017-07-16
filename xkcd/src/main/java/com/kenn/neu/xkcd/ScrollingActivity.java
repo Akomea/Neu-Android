@@ -133,6 +133,12 @@ public class ScrollingActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+/*
+    public boolean fabClicked(View view){
+
+        }*/
+
+
 }
 
 

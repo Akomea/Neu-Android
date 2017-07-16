@@ -31,4 +31,27 @@
         app:layout_anchorGravity="bottom|end" app:srcCompat="@drawable/share" />
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:alpha="0.4"
+        android:layout_marginBottom="110dp"
+        android:backgroundTint="#fff"
+        android:src="@drawable/ic_chevron_right_black_24dp"
+         />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:alpha="0.4"
+        android:layout_marginBottom="110dp"
+        android:backgroundTint="#fff"
+        android:src="@drawable/ic_chevron_left_black_24dp"
+        />
+
+
 </android.support.design.widget.CoordinatorLayout>
