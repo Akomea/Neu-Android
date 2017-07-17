@@ -1,6 +1,11 @@
 package com.kenn.neu.xkcd;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,17 +16,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.content.Intent;
 import android.text.TextUtils;
 
 
+
 import com.bumptech.glide.Glide;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
+
+import static com.kenn.neu.xkcd.R.id.fab;
 
 
 public class ScrollingActivity extends AppCompatActivity {
@@ -29,6 +41,7 @@ public class ScrollingActivity extends AppCompatActivity {
     private ImageView ivXkcdPic;
     private TextView tvCreateDate;
     private ProgressBar pbLoading;
+    private ShareActionProvider mShareActionProvider;
 
     private final static String TAG = "MainActivity";
     // Use this field to record the latest xkcd pic id
@@ -55,13 +68,19 @@ public class ScrollingActivity extends AppCompatActivity {
         });
         loadXkcdPic();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+                    Intent i = new Intent(android.content.Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    System.out.println(imgUrl);
+
+                    i.putExtra(Intent.EXTRA_TEXT, "https://imgs.xkcd.com/comics/poisson.jpg");
+
+                    startActivity(Intent.createChooser(i,"Share Link via..."));
+                }
+
         });
     }
 
@@ -139,7 +158,9 @@ public class ScrollingActivity extends AppCompatActivity {
         public boolean onCreateOptionsMenu (Menu menu){
             // Inflate the menu; this adds items to the action bar if it is present.
             getMenuInflater().inflate(R.menu.menu_scrolling, menu);
+            // Locate MenuItem with ShareActionProvider
             return true;
+
         }
 
         @Override
@@ -160,6 +181,8 @@ public class ScrollingActivity extends AppCompatActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+
+
     }
 
 
