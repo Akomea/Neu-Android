@@ -20,7 +20,7 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.content.Intent;
 import android.text.TextUtils;
-
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -87,11 +87,13 @@ public class ScrollingActivity extends AppCompatActivity {
     /**
      * Request current xkcd picture
      */
-    private void loadXkcdPic() {
+    private void loadXkcdPic() throws NullPointerException{
         try {
             URL url = new URL(NetworkUtils.XKCD_QUERY_BASE_URL);
             new XkcdQueryTask(listener).execute(url);
         } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
             e.printStackTrace();
         }
     }
@@ -102,13 +104,15 @@ public class ScrollingActivity extends AppCompatActivity {
      * @param id the id of xkcd picture
      */
 
-    private void loadXkcdPicById(int id) {
+    private void loadXkcdPicById(int id) throws NullPointerException {
         String queryUrl = String.format(NetworkUtils.XKCD_QUERY_BY_ID_URL, id);
 
         try {
             URL url = new URL(queryUrl);
             new XkcdQueryTask(listener).execute(url);
         } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e){
             e.printStackTrace();
         }
     }
@@ -144,14 +148,19 @@ public class ScrollingActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPostExecute(Serializable result) {
+            public void onPostExecute(Serializable result) throws NullPointerException {
                 pbLoading.setVisibility(View.GONE);
                 if (result instanceof XkcdPic) {
                     if (0 == currentIndex) {
                         currentIndex = ((XkcdPic) result).num;
                     }
                 }
-                renderXkcdPic((XkcdPic) result);
+                try {
+                    renderXkcdPic((XkcdPic) result);
+                }catch (NullPointerException e){
+                    Toast.makeText(ScrollingActivity.this, "Check internet connection", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
             }
         };
         @Override
