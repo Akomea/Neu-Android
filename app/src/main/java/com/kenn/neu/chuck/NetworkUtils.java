@@ -10,13 +10,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
-
 /**
  * Created by Akomea Kenneth on 13/07/2017.
  */
 
 public class NetworkUtils {
-    private static final String CHUCK_QUERY_BASE_URL = "http://api.icndb.com/jokes/random?limitTo=[explicit]";
+    private static final String CHUCK_QUERY_BASE_URL = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
     private final static String PARAM_FIRST_NAME = "firstName";
     private final static String PARAM_LAST_NAME = "lastName";
 

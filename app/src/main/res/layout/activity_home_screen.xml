@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+
     tools:context="com.kenn.neu.chuck.Home_screen">
 
     <FrameLayout
@@ -13,24 +14,24 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="-70dp"
             android:layout_marginRight="33dp"
-            android:alpha="0.5"
+            android:alpha="0.3"
+
             android:src="@drawable/logo" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Title_text"
         android:textStyle="bold"
-
         android:layout_marginTop="10dp"
         android:layout_marginLeft="60dp"
-        android:textSize="18dp"/>
+        android:textSize="18dp" />
 
 
 
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginRight="210dp"
         android:layout_marginLeft="20dp"
         android:padding="10dp"
         android:hint="Chuck" />
@@ -50,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-
         android:layout_marginTop="40dp"
         android:layout_marginLeft="200dp"
         android:layout_marginRight="20dp"
@@ -68,8 +68,7 @@
     android:layout_marginLeft="140dp"
     android:layout_centerHorizontal="true"
     android:text="@string/load_joke_text"
-    android:onClick="loadButton"
-    android:background="#4286f4"/>
+    android:background="@drawable/button_with_shadow"/>
 
     <TextView
         android:id="@+id/textChuck"
@@ -81,10 +80,14 @@
         android:layout_centerHorizontal="true"
         android:text="@string/default_text"
         android:layout_below="@id/loadButton"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        tools:text="Hello World!" />
+        android:textStyle="italic"
+
+        android:textColor="#0e1c0f"
+        android:textSize="25sp"
+        android:shadowColor="#afafaf"
+        android:shadowRadius="5"
+        android:shadowDy="6"
+        android:shadowDx="7"/>
 
     <ProgressBar
         android:id="@+id/pb_loading"

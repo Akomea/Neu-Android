@@ -1,22 +1,23 @@
 package com.kenn.neu.chuck;
 
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.URL;
 
 public class Home_screen extends AppCompatActivity {
-
     /**
      *
      */
@@ -25,7 +26,6 @@ public class Home_screen extends AppCompatActivity {
     private ProgressBar pbLoading;
     private EditText edtFirstName;
     private EditText edtLastName;
-
     /**
      *
      * @param savedInstanceState
@@ -33,6 +33,7 @@ public class Home_screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home_screen);
 
         textView= (TextView) findViewById(R.id.textChuck);
@@ -73,7 +74,6 @@ public class Home_screen extends AppCompatActivity {
         protected String doInBackground(URL... params) {
                 String result = null;
                 try {
-                    //URL url = new URL(params[0]);
                     URL url = params[0];
 
                     result = NetworkUtils.getResponseFromHttpUrl(url);
