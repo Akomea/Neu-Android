@@ -7,4 +7,5 @@
     <item name="action_specific" type="id" />
     <item name="action_gotoXkcd" type="id" />
     <item name="action_explain" type="id" />
+    <item name="fullscreen_content" type="id">Full</item>
 </resources>
